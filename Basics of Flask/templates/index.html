@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Information Form</title>
+</head>
+<body>
+    <h1>User Information Form</h1>
+    <form action="/submit" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="username"><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if username and dob %}
+        <h2>User Information:</h2>
+        <p><strong>Name:</strong> {{ username }}</p>
+        <p><strong>Date of Birth:</strong> {{ dob }}</p>
+    {% endif %}
+</body>
+</html>

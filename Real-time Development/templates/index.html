@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-time Data Update</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+
+        socket.on('update', function(data) {
+            document.getElementById('data_value').innerText = data.value;
+            document.getElementById('last_updated').innerText = data.timestamp;
+        });
+    </script>
+</head>
+<body>
+    <h1>Real-time Data Update</h1>
+    <p>Data Value: <span id="data_value"></span></p>
+    <p>Last Updated: <span id="last_updated"></span></p>
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+
+        socket.on('notification', function(message) {
+            var notificationElement = document.createElement('p');
+            notificationElement.textContent = message;
+            document.getElementById('notifications').appendChild(notificationElement);
+        });
+    </script>
+</head>
+<body>
+    <h1>Notifications</h1>
+    <div id="notifications"></div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uploaded Files</title>
+</head>
+<body>
+    <h1>Uploaded Files</h1>
+    <ul>
+        {% for file in files %}
+            <li><img src="{{ url_for('static', filename='uploads/' + file) }}" height="150"></li>
+        {% endfor %}
+    </ul>
+    <h2>Upload New File</h2>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
